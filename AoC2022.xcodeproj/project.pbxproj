@@ -8,23 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		9A90F0172955E6780011ECF2 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A90F0162955E6780011ECF2 /* main.c */; };
+		9A90F0252955F1440011ECF2 /* Resources in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9A90F0242955EFD50011ECF2 /* Resources */; };
+		9A90F028295603680011ECF2 /* d1.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A90F027295603680011ECF2 /* d1.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9A90F0112955E6780011ECF2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 7;
 			files = (
+				9A90F0252955F1440011ECF2 /* Resources in CopyFiles */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		9A90F0132955E6780011ECF2 /* AoC2022 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = AoC2022; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A90F0162955E6780011ECF2 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		9A90F0242955EFD50011ECF2 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
+		9A90F026295603680011ECF2 /* d1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = d1.h; sourceTree = "<group>"; };
+		9A90F027295603680011ECF2 /* d1.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = d1.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +63,10 @@
 		9A90F0152955E6780011ECF2 /* AoC2022 */ = {
 			isa = PBXGroup;
 			children = (
+				9A90F0242955EFD50011ECF2 /* Resources */,
 				9A90F0162955E6780011ECF2 /* main.c */,
+				9A90F026295603680011ECF2 /* d1.h */,
+				9A90F027295603680011ECF2 /* d1.c */,
 			);
 			path = AoC2022;
 			sourceTree = "<group>";
@@ -119,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A90F028295603680011ECF2 /* d1.c in Sources */,
 				9A90F0172955E6780011ECF2 /* main.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

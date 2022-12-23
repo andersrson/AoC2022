@@ -6,9 +6,11 @@
 //
 
 #include <stdio.h>
+#include "d1.h"
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
+    
+    Day1Part2();
+    
     return 0;
 }
