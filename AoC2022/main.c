@@ -6,13 +6,12 @@
 //
 
 #include <stdio.h>
-#include "d1.h"
-#include "d2.h"
-#include "d3.h"
+
+#include "d4.h"
 
 int main(int argc, const char * argv[]) {
-    
-    Day3Part2();
+
+    Day4Part2();
     
     return 0;
 }
