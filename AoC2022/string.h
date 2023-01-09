@@ -60,10 +60,17 @@ char* findCharInString(const struct string* str, char c);
 /// - Returns: index of first occurence of `c` in `str`, or -1 if not found
 int findIndexInString(const struct string* str, char c);
 
+/// Returns the first index in string containing c.
+/// - Parameter str: `struct string*` object to search in
+/// - Parameter c: `char` to search for in `str`
+/// - Parameter offset: Start search from `offset`
+/// - Returns: index of first occurence of `c` in `str`, or -1 if not found. Returned index will include `offset`.
+int findIndexOffsetInString(const struct string* str, char c, uint offset);
+
 /// Split `str` into list of sub strings at `separator`. Return first entry in a list of substrings.
 ///  - Parameter str: String object to split
 ///  - Parameter separator: Character to delimit strings
 ///  - Returns: `struct list*` containing all string splits
-const struct list* splitString(const struct string* str, char separator);
+struct list* splitString(const struct string* str, char separator);
 
 #endif /* string_h */

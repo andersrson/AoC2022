@@ -61,6 +61,12 @@ bool releaseAllDelegateList(struct list* list, void (*delegate)(void* data));
 /// - Returns New `struct list*` appended to the end of `list`.
 struct list* appendToList(struct list* list, void* data, size_t len);
 
+/// Add existing `struct list` entry at the end of list.
+/// - Parameter list: `struct list*` to append new entry to
+/// - Parameter entry: Already existing `struct list` entry. `entry` may have follower entries, but must be the first entry in such a list.
+/// - Returns `struct list*` appended to the end of `list`.
+struct list* appendEntryToList(struct list* list, struct list* entry);
+
 /// Add new entry at the beginning of list, with supplied data of len size
 /// - Parameter list: `struct list*` to prepend new entry to
 /// - Parameter data: User-supplied data this `struct list*` entry shall point to
@@ -68,7 +74,13 @@ struct list* appendToList(struct list* list, void* data, size_t len);
 /// - Returns New `struct list*` prepended before of `list`.
 struct list* prependToList(struct list* list, void* data, size_t len);
 
-/// Add new entry at the end of list, with supplied data of len size. An error will be asserted if list does not have an entry at index already.
+/// Add existing `struct list` entry at the beginning of list.
+/// - Parameter list: `struct list*` to prepend new entry to
+/// - Parameter entry: Already existing `struct list`entry. `entry` may have antecedent entries, but must be the last entry in such a list.
+/// - Returns `struct list*` prepended before `list`.
+struct list* prependEntryToList(struct list* list, struct list* entry);
+
+/// Insert new entry at the given index in the list, with supplied data of len size. An error will be asserted if list does not have an entry at index already.
 /// - Parameter list: `struct list*` to insert new entry into
 /// - Parameter data: User-supplied data this `struct list*` entry shall point to
 /// - Parameter len: Length of `data`, in bytes
@@ -76,23 +88,47 @@ struct list* prependToList(struct list* list, void* data, size_t len);
 /// - Returns New `struct list*` inserted into `list` at index `index`.
 struct list* insertInList(struct list* list, void* data, size_t len, uint index);
 
+/// Insert existing entry at the given index in the list. An error will be asserted if list does not have an entry at index already.
+/// - Parameter list: `struct list*` to insert new entry into
+/// - Parameter entry: Already existing `struct list`entry
+/// - Parameter index: Index where to insert new `struct list*` entry
+/// - Returns `struct list*` inserted into `list` at index `index`.
+struct list* insertEntryInList(struct list* list, struct list* entry, uint index);
+
+/// Remove entry from the list.
+/// - Parameter entry: `struct list`entry
+/// - Returns `struct list*` that was removed.
+struct list* removeEntryFromList(struct list* entry);
+
+/// Remove the first `count` entries from the list. If list does not contain at least `count` entries an error is asserted.
+/// - Parameter list: The list to take from
+/// - Parameter count: The number of items to take
+/// - Returns: The first of the removed items
+struct list* takeList(struct list* list, size_t count);
+
+/// Remove the last `count` entries from the list. If list does not contain at least `count` entries an error is asserted.
+/// - Parameter list: The list to take from
+/// - Parameter count: The number of items to take
+/// - Returns: The first of the removed items
+struct list* takeTailList(struct list* list, size_t count);
+
 /// Retrieve the last entry in the list
 /// - Parameter list:`struct list*`
 /// - Returns: Last entry in list containing `list`
-const struct list* getLastList(const struct list* list);
+struct list* getLastList(const struct list* list);
 
 /// Retrieve first entry in list
 /// - Parameter list:`struct list*`
 /// - Returns: First entry in list containing `list`
-const struct list* getFirstList(const struct list* list);
+struct list* getFirstList(const struct list* list);
 
 /// Get entry at given index. List will always be traversed to start from the first entry.
 /// - Parameter list: `struct list*` to search
 /// - Parameter index: Index where to insert new `struct list*` entry
 /// - Returns: Entry at index `index` counting from start of  `list`. If `index` is greater than the number of elements in the list plus one, NULL is returned.
-const struct list* getAtIndexList(const struct list* list, uint index);
+struct list* getAtIndexList(const struct list* list, uint index);
 
-/// Get number of elements in list
+/// Get number of elements in list. An error is asserted if `list` is NULL.
 /// - Parameter list: `struct list*`
 /// - Returns: Number of linked entries
 size_t countList(const struct list* list);

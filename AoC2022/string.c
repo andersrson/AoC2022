@@ -72,7 +72,18 @@ int findIndexInString(const struct string* str, char c) {
     return -1;
 }
 
-const struct list* splitString(const struct string* inputStr, char separator) {
+int findIndexOffsetInString(const struct string* str, char c, uint offset) {
+    assert(str != NULL);
+    
+    for(uint i = offset; i < str->len; i++) {
+        if(str->c_str[i] == c)
+            return i;
+    }
+
+    return -1;
+}
+
+struct list* splitString(const struct string* inputStr, char separator) {
     assert(inputStr != NULL);
     
     struct string* localStr = (struct string*) inputStr;
