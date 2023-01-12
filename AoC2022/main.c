@@ -7,11 +7,13 @@
 
 #include <stdio.h>
 
-#include "d5.h"
+#include "d6.h"
 
 int main(int argc, const char * argv[]) {
 
-    Day5Part2();
+    
+    Day6Part1(4);
+    Day6Part2(14);
     
     return 0;
 }
